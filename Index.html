@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rerison Martins | Arte Digital</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f8fc;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0d6efd, #001f54);
+            color: #fff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 6px solid #fff;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,.3);
+            margin-bottom: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        header img:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 15px 35px;
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            background: #20ba5a;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 34px;
+            color: #003366;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(13, 110, 253, 0.15);
+        }
+
+        .card h3 {
+            color: #0d6efd;
+            margin-bottom: 15px;
+        }
+
+        .card-contato {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        footer {
+            background: #001f54;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        /* Classes para a animação de scroll */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="foto.png" alt="Rerison Martins">
+        <h1>Rerison Martins</h1>
+        <p>
+            Especialista em Arte Digital, Landing Pages, Logos, Banners e Identidade Visual.
+            Transformo ideias em projetos modernos e profissionais.
+        </p>
+        <a class="btn" href="https://wa.me/5521996502884" target="_blank" rel="noopener noreferrer">
+            📲 Fale comigo no WhatsApp
+        </a>
+    </header>
+
+    <section class="scroll-reveal">
+        <h2>Meus Serviços</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>🎨 Arte Digital</h3>
+                <p>Criação de artes para redes sociais, anúncios e campanhas.</p>
+            </div>
+            <div class="card">
+                <h3>💻 Landing Pages</h3>
+                <p>Páginas modernas para divulgar seu negócio e gerar vendas.</p>
+            </div>
+            <div class="card">
+                <h3>🚀 Identidade Visual</h3>
+                <p>Logotipos profissionais e identidade completa para empresas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="scroll-reveal">
+        <h2>Contato</h2>
+        <div class="card card-contato">
+            <p><strong>📱 WhatsApp</strong></p>
+            <p>21 99650-2884</p>
+            <br>
+            <p><strong>📷 Instagram</strong></p>
+            <p>@rerison_martins</p>
+            <br>
+            <a class="btn" href="https://instagram.com/reriso_martins" target="_blank" rel="noopener noreferrer">
+                Ver Instagram
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Rerison Martins - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const secoes = document.querySelectorAll('.scroll-reveal');
+
+            const opcoes = {
+                root: null,
+                threshold: 0.15
+            };
+
+            const observador = new IntersectionObserver((entradas, observador) => {
+                entradas.forEach(entrada => {
+                    if (entrada.isIntersecting) {
+                        entrada.target.classList.add('active');
+                        observador.unobserve(entrada.target);
+                    }
+                });
+            }, opcoes);
+
+            secoes.forEach(secao => {
+                observador.observe(secao);
+            });
+        });
+    </script>
+</body>
+</html>
